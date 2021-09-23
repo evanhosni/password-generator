@@ -22,26 +22,26 @@ function generatePassword() {
   var holdingArray = []
   var finalArray = []
 
-  charCount = parseInt(prompt('How many characters?','(8-128)'));
+  charCount = parseInt(prompt('How many characters?','(Any number between 8 and 128)'));
   if (isNaN(charCount) || charCount < 8 || charCount > 128) {
-    alert('nice try, sucka! (number between 8 and 128)');
+    alert("That won't work... You have to type a number between 8 and 128!");
     return 'failed'
   }
 
-  if (confirm('lowercase?')) {
+  if (confirm('Include lowercase letters?')) {
     holdingArray = holdingArray.concat(lowerCaseArray)
   }
-  if (confirm('uppercase?')) {
+  if (confirm('Include uppercase letters?')) {
     holdingArray = holdingArray.concat(upperCaseArray)
   }
-  if (confirm('numbvers/?')) {
+  if (confirm('Include numbers?')) {
     holdingArray = holdingArray.concat(numArray)
   }
-  if (confirm('spec chars?')) {
+  if (confirm('Include special characters?')) {
     holdingArray = holdingArray.concat(specCharArray)
   }
   if (holdingArray.length == 0) {
-    alert('bruh')
+    alert('Come on... You have to include something!')
     return 'failed'
   }
 
