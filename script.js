@@ -19,7 +19,7 @@ function writePassword() {
 function generatePassword() {
 
   var charCount
-  var holdingArray = []
+  var tempArray = []
   var finalArray = []
 
   charCount = parseInt(prompt('How many characters?','(Any number between 8 and 128)'));
@@ -29,24 +29,24 @@ function generatePassword() {
   }
 
   if (confirm('Include lowercase letters?')) {
-    holdingArray = holdingArray.concat(lowerCaseArray)
+    tempArray = tempArray.concat(lowerCaseArray)
   }
   if (confirm('Include uppercase letters?')) {
-    holdingArray = holdingArray.concat(upperCaseArray)
+    tempArray = tempArray.concat(upperCaseArray)
   }
   if (confirm('Include numbers?')) {
-    holdingArray = holdingArray.concat(numArray)
+    tempArray = tempArray.concat(numArray)
   }
   if (confirm('Include special characters?')) {
-    holdingArray = holdingArray.concat(specCharArray)
+    tempArray = tempArray.concat(specCharArray)
   }
-  if (holdingArray.length == 0) {
+  if (tempArray.length == 0) {
     alert('Come on... You have to include something!')
     return 'failed'
   }
 
   for (let i = 0; i < charCount; i++) {
-    var randomChar = holdingArray[Math.floor(Math.random()*holdingArray.length)];
+    var randomChar = tempArray[Math.floor(Math.random()*tempArray.length)];
     finalArray.push(randomChar);
   }
 
